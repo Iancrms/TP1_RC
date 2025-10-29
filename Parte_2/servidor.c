@@ -87,7 +87,7 @@ void tratar_req(int cliente, const char *base_dir) {
 
     struct stat info;
     if (stat(path_completo, &info) < 0) {
-        char resposta[] = "HTTP/1.0 404 Not Found\r\n\r\n<h1>Arquivo não encontrado</h1>";
+        char resposta[] = "HTTP/1.0 404 Not Found\r\n\r\n<h1>404 Not Found</h1><p>Arquivo não encontrado.</p>";
         write(cliente, resposta, strlen(resposta));
         close(cliente);
         return;
