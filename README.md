@@ -1,6 +1,6 @@
 # Trabalho prático 1 de Redes de Computadores
 
-#Parte 1:
+# Parte 1:
 
 Foi feito um cliente HTTP simples, capaz de utilizar um socket para enviar uma requisição GET a um servidor e receber/salvar o arquivo presente no URL.
 Isso foi feito da seguinte maneira:
@@ -14,7 +14,7 @@ Isso foi feito da seguinte maneira:
 - Abre um arquivo para escrita e um loop para ler e copiar o arquivo do corpo para o arquivo criado;
 - Por fim, fecha o socket e o arquivo.
 
-#Parte 2:
+# Parte 2:
 
 Foi feito um servidor HTTP simples, capaz de resolver o caminho para um diretório raíz selecionado.
 O servidor foi feito da seguinte maneira:
