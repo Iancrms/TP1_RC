@@ -21,18 +21,28 @@ void parse_url(const char *url, char *host, char *path, int *porta) {
         }
     }
 
-    *porta = 80; // Porta padrão HTTP
+    *porta = 80;
 
     j = 0;
-    while (url[i] != '\0' && url[i] != '/') {
+    while (url[i] != '\0' && url[i] != '/' && url[i] != ':') {
         if (j < TAM_MAX_HOST - 1) {
             host[j] = url[i];
             j++;
         }
-        
         i++;
     }
     host[j] = '\0';
+
+    if (url[i] == ':') {
+        i++;
+        char porta_str[10];
+        int p = 0;
+        while (url[i] >= '0' && url[i] <= '9' && p < (int)sizeof(porta_str) - 1) {
+            porta_str[p++] = url[i++];
+        }
+        porta_str[p] = '\0';
+        *porta = atoi(porta_str);
+    }
 
     if (url[i] == '/') {
         k = 0;
@@ -41,12 +51,12 @@ void parse_url(const char *url, char *host, char *path, int *porta) {
             k++;
             i++;
         }
-
         path[k] = '\0';
     } else {
         strcpy(path, "/");
     }
 }
+
 
 void get_filename(char *path, char *filename) {
     int i = 0, j = 0;
