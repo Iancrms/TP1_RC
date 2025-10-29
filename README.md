@@ -14,6 +14,8 @@ Isso foi feito da seguinte maneira:
 - Abre um arquivo para escrita e um loop para ler e copiar o arquivo do corpo para o arquivo criado;
 - Por fim, fecha o socket e o arquivo.
 
+EXECUÇÃO: após compilar com make,  ./meu_navegador <URL>
+
 # Parte 2:
 
 Foi feito um servidor HTTP simples, capaz de resolver o caminho para um diretório raíz selecionado.
@@ -30,3 +32,5 @@ O servidor foi feito da seguinte maneira:
 - Se o caminho for um diretório, verifica se existe um arquivo index.html e o envia ou gera uma listagem com os arquivos. Se for um arquivo, determina o tipo e envia seu conteúdo ao cliente;
 - Caso o arquivo não exista, envia uma resposta de erro 404;
 - Após o envio, fecha o socket do cliente e continua aguardando novas conexões.
+
+EXECUÇÃO: após compilar com make, ./meu_servidor caminho/para/dir/raiz
